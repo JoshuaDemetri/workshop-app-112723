@@ -7,6 +7,7 @@ import { Video } from '../app-types';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
+  selectedVideo: Video | undefined;
   videoList: Video[] = [
     {
       title: 'Tips from Angular Book Camp instructors',
@@ -140,4 +141,8 @@ export class DashboardComponent {
       ],
     },
   ];
+
+  setSelectedVideo(video: Video) {
+    this.selectedVideo = video;
+  }
 }
