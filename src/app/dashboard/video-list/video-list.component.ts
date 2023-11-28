@@ -7,6 +7,7 @@ import { Video } from 'src/app/app-types';
   styleUrls: ['./video-list.component.scss'],
 })
 export class VideoListComponent {
+  selectedId: string | undefined;
   videoList: Video[] = [
     {
       title: 'Tips from Angular Book Camp instructors',
