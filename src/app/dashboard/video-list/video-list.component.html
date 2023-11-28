@@ -1,8 +1,6 @@
-<article
-  *ngFor="let video of videoList"
+<app-video-card
+  *ngFor="let video of videos"
   (click)="selectedId = video.id"
-  [class.selected]="video.id === selectedId"
->
-  <header>{{ video.title }}</header>
-  <p>{{ video.author }}</p>
-</article>
+  [video]="video"
+  [isSelected]="video.id === selectedId"
+></app-video-card>

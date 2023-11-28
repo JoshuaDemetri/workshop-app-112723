@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { VideoListComponent } from './video-list/video-list.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { StatFiltersComponent } from './stat-filters/stat-filters.component';
+import { VideoCardComponent } from './video-card/video-card.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { StatFiltersComponent } from './stat-filters/stat-filters.component';
     DashboardComponent,
     VideoListComponent,
     VideoPlayerComponent,
-    StatFiltersComponent
+    StatFiltersComponent,
+    VideoCardComponent
   ],
   imports: [
     CommonModule,
