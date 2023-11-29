@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
@@ -8,18 +9,14 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
 import { StatFiltersComponent } from './stat-filters/stat-filters.component';
 import { VideoCardComponent } from './video-card/video-card.component';
 
-
 @NgModule({
   declarations: [
     DashboardComponent,
     VideoListComponent,
     VideoPlayerComponent,
     StatFiltersComponent,
-    VideoCardComponent
+    VideoCardComponent,
   ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule
-  ]
+  imports: [CommonModule, DashboardRoutingModule, HttpClientModule],
 })
-export class DashboardModule { }
+export class DashboardModule {}
