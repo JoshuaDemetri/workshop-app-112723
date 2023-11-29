@@ -1,1 +1,16 @@
-<p>stat-filters works!</p>
+<article>
+  <header>Search:</header>
+  <form [formGroup]="filters" (ngSubmit)="submit()">
+    <label for="title"></label>
+    <input id="title" type="text" [formControl]="filters.controls.title" />
+
+    <label for="author"></label>
+    <input id="author" type="text" [formControl]="filters.controls.author" />
+
+    <button type="submit" [disabled]="!filters.valid">Submit</button>
+  </form>
+</article>
+
+<pre>
+  {{ filters.value | json }}
+</pre>
