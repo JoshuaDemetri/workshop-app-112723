@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Video } from '../app-types';
-import { Observable } from 'rxjs';
+import { Observable, filter, map, shareReplay, switchMap } from 'rxjs';
 import { VideoDataService } from '../video-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,14 +10,17 @@ import { VideoDataService } from '../video-data.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  selectedVideo: Video | undefined;
+  selectedVideo: Observable<Video | undefined>;
   videoList: Observable<Video[]>;
 
-  constructor(svc: VideoDataService) {
+  constructor(svc: VideoDataService, route: ActivatedRoute) {
     this.videoList = svc.loadVideos();
-  }
 
-  setSelectedVideo(video: Video) {
-    this.selectedVideo = video;
+    this.selectedVideo = route.queryParamMap.pipe(
+      map((params) => params.get('videoId') as string),
+      filter((id) => !!id),
+      switchMap((id) => svc.loadSingleVideo(id)),
+      shareReplay(1)
+    );
   }
 }

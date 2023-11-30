@@ -1,4 +1,8 @@
-<article *ngIf="video">
+<article *ngIf="video; else noneSelected">
   <header>{{ video.title }}</header>
   <p>{{ video.author }}</p>
 </article>
+
+<ng-template #noneSelected>
+  <h2>Please Select a Video!</h2>
+</ng-template>
